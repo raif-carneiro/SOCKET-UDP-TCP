@@ -5,7 +5,6 @@ const port = 8080
 const host = 'localhost'
 
 const server = net.createServer(function(socket) {
-  console.log(`Server listening on ${host}:${port}`);
   socket.on('data', function(data) {
     console.log('Received: ' + data);
     // Converte valor recebido e encaminha para o cliente
@@ -16,7 +15,9 @@ const server = net.createServer(function(socket) {
   });
 });
 
-server.listen(port, host);
+server.listen(port, host, ()=>{
+  console.log(`Server listening on ${host}:${port}`);
+});
 
 
 
